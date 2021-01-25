@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Video Controls</title>
+    <link rel="stylesheet" href="CSS/style.css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+</head>
+<body>
+    <div class="video-container">
+        <video>
+            <source src="Beach.mp4" type="video/mp4">
+        </video>
+        <div class="controls paused">
+            <div class="time-bar-container">
+                <div class="time-bar"></div>
+            </div>
+            <div class="buttons">
+                <div class="buttons-left">
+                    <button class="play-toggle"><i class="fas fa-play"></i></button>
+                    <button class="volume"><i class="fas fa-volume-up"></i></button>
+                    <div class="volume-bar-container">
+                        <div class="volume-bar"></div>
+                    </div>
+                    <p class="time"></p>
+                </div>
+                <div class="buttons-right">
+                    <button class="fullscreen-toggle"><i class="fas fa-expand"></i></button>
+                </div>
+            </div>
+        </div>
+
+        <div class="overlay"><button><i class="fas fa-play"></i></button>
+        </div>
+    </div>
+    <script src="JS/app.js"></script>
+</body>
+</html>

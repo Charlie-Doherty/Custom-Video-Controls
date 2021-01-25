@@ -1,0 +1,150 @@
+:root{
+    --primary-color: #0984e3;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #222;
+}
+
+.video-container{
+    position: relative;
+}
+
+video{
+    display: block;
+    outline: none;
+    max-width: 100%;
+    width: 50em;
+    height: auto;
+}
+
+.video-container:fullscreen video{
+    width: 100vw;
+    height: 100vh;
+}
+
+.video-container:-webkit-full-screen video{
+    width: 100vw;
+    height: 100vh;
+}
+
+.video-container:-moz-full-screen video{
+    width: 100vw;
+    height: 100vh;
+}
+
+.video-container:-ms-fullscreen video{
+    width: 100vw;
+    height: 100vh;
+}
+
+video::-webkit-media-controls{
+    display: none;
+}
+
+.controls{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    color: #fff;
+    opacity: 0;
+    transition: 300ms opacity linear;
+}
+
+.video-container:hover .controls, .paused{
+    opacity: 1;
+}
+
+.time-bar-container{
+    height: 0.2em;
+    background-color: rgba(255, 255, 255, 0.4);
+    width: 100%;
+}
+
+.time-bar-container:hover{
+    height: 0.3em;
+}
+
+.time-bar{
+    height: 100%;
+    width: 0;
+    background-color: var(--primary-color);
+}
+
+.buttons{
+    padding: 0.8em 1em;
+    display: flex;
+    justify-content: space-between;
+}
+
+.buttons-left, .buttons-right{
+    display: flex;
+    align-items: center;
+}
+
+.buttons-left * + *,
+.buttons-right * + *{
+    margin-left: 1em;
+}
+
+button{
+    border: none;
+    outline: none;
+    font-size: 1.2rem;
+    color: #fff;
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.volume i{
+    width: 1.1em;
+}
+
+.volume-bar-container{
+    height: 0.2em;
+    background-color: rgba(255, 255, 255, 0.4);
+    width: 3em;
+    cursor: pointer;
+    margin-left: 0.4em;
+}
+
+.volume-bar{
+    height: 100%;
+    background-color: #fff;
+    transition: 200ms width ease-in-out;
+}
+
+.time{
+    font-size: 0.9rem;
+}
+
+.overlay{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #000;
+    cursor: pointer;
+  }
+
+  .overlay button{
+      font-size: 3.5rem;
+  }
