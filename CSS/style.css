@@ -26,7 +26,6 @@ video{
     max-width: 100%;
     width: 50em;
     height: 28.125em;
-    max-height: 100%;
 }
 
 .video-container:fullscreen video{
@@ -148,4 +147,10 @@ button{
 
   .overlay button{
       font-size: 3.5rem;
+  }
+
+  @media(max-width: 800px){
+      video{
+          height: auto;
+      }
   }
