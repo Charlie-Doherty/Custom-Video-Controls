@@ -16,7 +16,7 @@ const timeText = document.querySelector('.time');
 const fullscreenToggle = document.querySelector('.fullscreen-toggle i');
 
 let previousVolume = 1;
-let newVolume = 1;
+let newVolume = previousVolume;
 
 playToggle.addEventListener('click', togglePlay);
 video.addEventListener('click', togglePlay);
@@ -27,7 +27,8 @@ volumeBarContainer.addEventListener('click', changeVolume);
 
 video.addEventListener('timeupdate', updateTime);
 video.addEventListener('canplay', updateTime);
-timeBarContainer.addEventListener('click', setTime);
+timeBarContainer.addEventListener('mousedown', setTime);
+video.addEventListener('mousemove', setTime);
 
 fullscreenToggle.addEventListener('click', toggleFullscreen);
 
@@ -102,15 +103,10 @@ function updateTime(){
 }
 
 function setTime(e){
+  if(e.which == 1){
 	const newTime = e.offsetX / timeBarContainer.offsetWidth;
 	timeBar.style.width = `${newTime * 100}%`;
   video.currentTime = newTime * video.duration;
-  
-  if(video.paused){
-    playToggle.className = 'fas fa-play';
-  }
-  else{
-      playToggle.className = 'fas fa-pause';
   }
 }
 
