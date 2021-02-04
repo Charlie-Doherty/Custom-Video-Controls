@@ -28,7 +28,6 @@ volumeBarContainer.addEventListener('click', changeVolume);
 video.addEventListener('timeupdate', updateTime);
 video.addEventListener('canplay', updateTime);
 timeBarContainer.addEventListener('mousedown', setTime);
-video.addEventListener('mousemove', setTime);
 
 fullscreenToggle.addEventListener('click', toggleFullscreen);
 
@@ -103,11 +102,9 @@ function updateTime(){
 }
 
 function setTime(e){
-  if(e.which == 1){
 	const newTime = e.offsetX / timeBarContainer.offsetWidth;
 	timeBar.style.width = `${newTime * 100}%`;
   video.currentTime = newTime * video.duration;
-  }
 }
 
 function timeFormat(time){
@@ -155,9 +152,9 @@ function openFullscreen(element){
 
 function handleKeypress(e){
 	if(e.code == 'Space'){
-        togglePlay();
-    }
-    if(e.code == 'KeyF'){
-        toggleFullscreen();
-    }
+    togglePlay();
+  }
+  if(e.code == 'KeyF'){
+    toggleFullscreen();
+  }
 }
