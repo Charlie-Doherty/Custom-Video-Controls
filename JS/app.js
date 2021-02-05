@@ -1,8 +1,5 @@
 const video = document.querySelector('video');
-const videoContainer = document.querySelector('.video-container');
-
 const overlay = document.querySelector('.overlay');
-const controls = document.querySelector('.controls');
 const playToggle = document.querySelector('.play-toggle i');
 
 const volume = document.querySelector('.volume i');
@@ -37,12 +34,10 @@ function togglePlay(){
     if(video.paused){
         video.play();
         playToggle.className = 'fas fa-pause';
-        controls.classList.remove('paused');
     }
     else{
         video.pause();
         playToggle.className = 'fas fa-play';
-        controls.classList.add('paused');
     }
 
     overlay.style.display = 'none';
@@ -92,13 +87,11 @@ function changeVolume(e) {
 
 function updateTime(){
     timeBar.style.width = `${video.currentTime / video.duration * 100}%`;
+    timeText.textContent = `${timeFormat(video.currentTime)} / ${timeFormat(video.duration)}`;
 
     if(video.ended){
-        playToggle.className = 'fas fa-redo';
-        controls.classList.add('paused');
+      playToggle.className = 'fas fa-redo';
     }
-
-    timeText.textContent = `${timeFormat(video.currentTime)} / ${timeFormat(video.duration)}`;
 }
 
 function setTime(e){
@@ -146,7 +139,7 @@ function openFullscreen(element){
 
   let fullscreen = false;
   function toggleFullscreen(){
-    fullscreen ? exitFullscreen() : openFullscreen(videoContainer)
+    fullscreen ? exitFullscreen() : openFullscreen(video.parentElement)
     fullscreen = !fullscreen;
   }
 
@@ -158,3 +151,5 @@ function handleKeypress(e){
     toggleFullscreen();
   }
 }
+
+window.addEventListener('contextmenu', (e) => e.preventDefault());

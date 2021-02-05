@@ -55,6 +55,7 @@ video::-webkit-media-controls{
 .controls{
     position: absolute;
     bottom: 0;
+    z-index: 10;
     width: 100%;
     background-color: rgba(0, 0, 0, 0.4);
     color: #fff;
