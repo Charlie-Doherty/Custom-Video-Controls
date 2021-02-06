@@ -29,6 +29,7 @@ timeBarContainer.addEventListener('mousedown', setTime);
 fullscreenToggle.addEventListener('click', toggleFullscreen);
 
 window.addEventListener('keydown', handleKeypress);
+video.addEventListener('contextmenu', (e) => e.preventDefault());
 
 function togglePlay(){
     if(video.paused){
@@ -151,5 +152,3 @@ function handleKeypress(e){
     toggleFullscreen();
   }
 }
-
-window.addEventListener('contextmenu', (e) => e.preventDefault());
